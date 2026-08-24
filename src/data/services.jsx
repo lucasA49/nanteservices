@@ -5,7 +5,7 @@ import {
   IconTruck,
   IconKey,
   IconCar,
-  IconDroplet,
+  IconSponge,
   IconAlertTriangle,
   IconSteeringWheel,
 } from '../components/icons.jsx'
@@ -14,7 +14,7 @@ import {
 export const featuredServices = [
   {
     id: 'nettoyage-auto',
-    icon: IconDroplet,
+    icon: IconSponge,
     title: 'Nettoyage automobile',
     summary:
       'Nettoyage automobile professionnel pour particuliers et professionnels : intérieur, extérieur ou complet.',
@@ -56,32 +56,6 @@ export const otherServices = [
     ctaHref: '/contact?type=mecanique-auto-moto',
   },
   {
-    id: 'menage',
-    icon: IconSparkles,
-    title: 'Ménage & nettoyage',
-    summary: 'Entretien régulier ou ponctuel de votre domicile ou de vos locaux professionnels.',
-    details: [
-      'Nettoyage résidentiel et bureaux',
-      'Formules hebdomadaires ou mensuelles',
-      'Produits et matériel fournis',
-    ],
-    ctaLabel: 'Demander un devis',
-    ctaHref: '/contact?type=menage',
-  },
-  {
-    id: 'espaces-verts',
-    icon: IconLeaf,
-    title: 'Entretien des espaces verts',
-    summary: 'Tonte, taille et entretien de jardins pour particuliers et copropriétés.',
-    details: [
-      'Tonte de pelouse et taille de haies',
-      'Entretien saisonnier des massifs',
-      'Évacuation des déchets verts',
-    ],
-    ctaLabel: 'Demander un devis',
-    ctaHref: '/contact?type=espaces-verts',
-  },
-  {
     id: 'petits-travaux',
     icon: IconWrench,
     title: 'Petits travaux & bricolage',
@@ -119,6 +93,32 @@ export const otherServices = [
     ],
     ctaLabel: 'Demander un devis',
     ctaHref: '/contact?type=conciergerie',
+  },
+  {
+    id: 'espaces-verts',
+    icon: IconLeaf,
+    title: 'Entretien des espaces verts',
+    summary: 'Tonte, taille et entretien de jardins pour particuliers et copropriétés.',
+    details: [
+      'Tonte de pelouse et taille de haies',
+      'Entretien saisonnier des massifs',
+      'Évacuation des déchets verts',
+    ],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=espaces-verts',
+  },
+  {
+    id: 'menage',
+    icon: IconSparkles,
+    title: 'Ménage & nettoyage',
+    summary: 'Entretien régulier ou ponctuel de votre domicile ou de vos locaux professionnels.',
+    details: [
+      'Nettoyage résidentiel et bureaux',
+      'Formules hebdomadaires ou mensuelles',
+      'Produits et matériel fournis',
+    ],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=menage',
   },
 ]
 

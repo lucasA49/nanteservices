@@ -213,6 +213,20 @@ export function IconDroplet({ className = 'w-6 h-6' }) {
   )
 }
 
+export function IconSponge({ className = 'w-6 h-6' }) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="3" y="12" width="14.25" height="7.5" rx="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="7" cy="15.75" r="0.75" />
+      <circle cx="10.5" cy="15.75" r="0.75" />
+      <circle cx="14" cy="15.75" r="0.75" />
+      <circle cx="18" cy="5.75" r="1.5" />
+      <circle cx="21" cy="8.25" r="0.85" />
+      <circle cx="15" cy="7.5" r="0.6" />
+    </svg>
+  )
+}
+
 export function IconSteeringWheel({ className = 'w-6 h-6' }) {
   return (
     <svg {...base} className={className}>

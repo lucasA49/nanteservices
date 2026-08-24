@@ -100,6 +100,8 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+
+        <p className="mt-4 text-center text-xs text-slate-600">Réalisé avec ❤️ par AK Agency</p>
       </div>
     </footer>
   )

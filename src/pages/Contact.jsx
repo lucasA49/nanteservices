@@ -146,7 +146,6 @@ export default function Contact() {
                 </span>
                 <div>
                   <p className="font-medium text-slate-900">Siège social</p>
-                  <p className="mt-1 text-sm text-slate-600">12 Rue de la Paix, 44000 Nantes</p>
                   <p className="text-sm text-slate-500">Nous intervenons chez vous — pas d’accueil sur place</p>
                 </div>
               </li>
