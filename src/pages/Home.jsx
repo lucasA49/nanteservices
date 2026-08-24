@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom'
-import services from '../data/services.jsx'
-import { IconArrowRight, IconBadge, IconCheckCircle, IconClock, IconShield, IconSparkles } from '../components/icons.jsx'
+import services, { featuredServices, otherServices } from '../data/services.jsx'
+import {
+  IconArrowRight,
+  IconBadge,
+  IconCheckCircle,
+  IconClock,
+  IconPhone,
+  IconShield,
+  IconSparkles,
+} from '../components/icons.jsx'
 
 const stats = [
   { value: '4 ans', label: "d'expérience à Nantes" },
@@ -44,11 +52,12 @@ export default function Home() {
               Services du quotidien à Nantes
             </span>
             <h1 className="mt-6 font-heading text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-              Des services fiables pour votre maison et votre entreprise
+              Des services fiables pour votre maison, votre véhicule et vos déplacements
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-              Ménage, entretien des espaces verts, petits travaux, déménagement, conciergerie, mécanique auto &amp;
-              moto&nbsp;: Nantes Services réunit des professionnels de confiance pour simplifier votre quotidien.
+              Nettoyage automobile, SOS Dépannage, VTC avec chauffeur privé, ménage, entretien des espaces verts,
+              petits travaux, déménagement, conciergerie&nbsp;: Nantes Services réunit des professionnels de
+              confiance pour simplifier votre quotidien.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
@@ -98,6 +107,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured activities */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center rounded-full bg-surface px-4 py-1.5 text-sm font-medium text-primary">
+              Nos 3 pôles d’activité
+            </span>
+            <h2 className="mt-4 font-heading text-3xl font-bold text-slate-900 sm:text-4xl">
+              Nettoyage auto, dépannage &amp; VTC
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Trois expertises dédiées à votre véhicule et à vos déplacements, avec un même engagement de sérieux et
+              de réactivité.
+            </p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {featuredServices.map((service) => {
+              const Icon = service.icon
+              return (
+                <article
+                  key={service.id}
+                  id={service.id}
+                  className="group scroll-mt-24 flex flex-col rounded-2xl border border-slate-200 p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary-light/50 hover:shadow-lg"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-accent transition-transform duration-200 group-hover:scale-105">
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="mt-5 font-heading text-xl font-semibold text-slate-900">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.summary}</p>
+
+                  <ul className="mt-4 space-y-2">
+                    {service.details.map((detail) => (
+                      <li key={detail} className="flex items-start gap-2 text-sm text-slate-600">
+                        <IconCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {service.note && (
+                    <p className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-surface px-3 py-1 text-xs font-semibold text-primary">
+                      <IconClock className="h-3.5 w-3.5" />
+                      {service.note}
+                    </p>
+                  )}
+
+                  <div className="mt-6 flex flex-1 flex-col justify-end gap-3">
+                    <Link
+                      to={service.ctaHref}
+                      className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-ink shadow-sm transition-colors duration-200 hover:bg-accent-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    >
+                      {service.ctaLabel}
+                      <IconArrowRight className="h-4 w-4" />
+                    </Link>
+                    {service.phoneCta && (
+                      <a
+                        href="tel:+33759124748"
+                        className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg border border-primary px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:bg-surface"
+                      >
+                        <IconPhone className="h-4 w-4" />
+                        {service.phoneCta}
+                      </a>
+                    )}
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Trust points */}
       <section className="border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -122,7 +203,7 @@ export default function Home() {
       <section id="services" className="scroll-mt-16 bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-heading text-3xl font-bold text-slate-900 sm:text-4xl">Nos services</h2>
+            <h2 className="font-heading text-3xl font-bold text-slate-900 sm:text-4xl">Nos autres services</h2>
             <p className="mt-4 text-lg text-slate-600">
               Une gamme complète de services pour votre domicile et vos locaux professionnels, assurée par des
               équipes de confiance.
@@ -130,7 +211,7 @@ export default function Home() {
           </div>
 
           <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => {
+            {otherServices.map((service) => {
               const Icon = service.icon
               return (
                 <article
@@ -152,10 +233,10 @@ export default function Home() {
                     ))}
                   </ul>
                   <Link
-                    to="/contact"
+                    to={service.ctaHref}
                     className="mt-6 inline-flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-primary transition-colors duration-200 hover:text-primary-light"
                   >
-                    Demander un devis
+                    {service.ctaLabel}
                     <IconArrowRight className="h-4 w-4" />
                   </Link>
                 </article>

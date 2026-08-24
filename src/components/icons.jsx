@@ -189,7 +189,7 @@ export function IconCheckCircle({ className = 'w-6 h-6' }) {
   )
 }
 
-export function IconAlertCircle({ className = 'w-6 h-6' }) {
+export function IconAlertTriangle({ className = 'w-6 h-6' }) {
   return (
     <svg {...base} className={className}>
       <path
@@ -197,6 +197,28 @@ export function IconAlertCircle({ className = 'w-6 h-6' }) {
         strokeLinejoin="round"
         d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
       />
+    </svg>
+  )
+}
+
+export function IconDroplet({ className = 'w-6 h-6' }) {
+  return (
+    <svg {...base} className={className}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 3.75c3.5 4.5 6 7.708 6 10.5a6 6 0 1 1-12 0c0-2.792 2.5-6 6-10.5Z"
+      />
+    </svg>
+  )
+}
+
+export function IconSteeringWheel({ className = 'w-6 h-6' }) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="12" r="8.25" />
+      <circle cx="12" cy="12" r="2.25" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3.75v6M6.05 16.5l5.187-3M17.95 16.5l-5.187-3" />
     </svg>
   )
 }

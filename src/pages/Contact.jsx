@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import { IconAlertCircle, IconCheckCircle, IconClock, IconMail, IconMapPin, IconPhone } from '../components/icons.jsx'
+import { useSearchParams } from 'react-router-dom'
+import { IconAlertTriangle, IconCheckCircle, IconClock, IconMail, IconMapPin, IconPhone } from '../components/icons.jsx'
 
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+
+const NETTOYAGE_AUTO = 'Nettoyage automobile'
+const SOS_DEPANNAGE = 'SOS Dépannage'
+const VTC = 'VTC – Chauffeur privé'
 
 const subjects = [
   'Ménage & nettoyage',
@@ -10,14 +15,54 @@ const subjects = [
   'Déménagement',
   'Conciergerie',
   'Mécanique auto & moto',
+  NETTOYAGE_AUTO,
+  SOS_DEPANNAGE,
+  VTC,
   'Autre demande',
 ]
 
-const initialForm = { name: '', email: '', phone: '', subject: subjects[0], message: '' }
+const typeToSubject = {
+  menage: 'Ménage & nettoyage',
+  'espaces-verts': 'Entretien des espaces verts',
+  'petits-travaux': 'Petits travaux',
+  demenagement: 'Déménagement',
+  conciergerie: 'Conciergerie',
+  'mecanique-auto-moto': 'Mécanique auto & moto',
+  'nettoyage-auto': NETTOYAGE_AUTO,
+  'sos-depannage': SOS_DEPANNAGE,
+  vtc: VTC,
+}
+
+const breakdownTypes = ['Panne carburant', 'Panne batterie', 'Crevaison']
+const vehicleTypes = ['Citadine', 'Berline', 'SUV / 4x4', 'Utilitaire', 'Moto']
+const carWashServices = ['Nettoyage intérieur', 'Nettoyage extérieur', 'Nettoyage complet']
+
+const initialForm = {
+  name: '',
+  email: '',
+  phone: '',
+  subject: subjects[0],
+  message: '',
+  breakdownType: breakdownTypes[0],
+  pickupAddress: '',
+  destination: '',
+  date: '',
+  time: '',
+  passengers: '',
+  vehicleType: vehicleTypes[0],
+  service: carWashServices[0],
+}
 
 export default function Contact() {
-  const [form, setForm] = useState(initialForm)
+  const [searchParams] = useSearchParams()
+  const initialSubject = typeToSubject[searchParams.get('type')] ?? subjects[0]
+
+  const [form, setForm] = useState(() => ({ ...initialForm, subject: initialSubject }))
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
+
+  const isSOS = form.subject === SOS_DEPANNAGE
+  const isVTC = form.subject === VTC
+  const isNettoyageAuto = form.subject === NETTOYAGE_AUTO
 
   function handleChange(e) {
     const { name, value } = e.target
@@ -34,20 +79,37 @@ export default function Contact() {
 
     setStatus('sending')
 
+    const body = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `Nantes Services — ${form.subject}`,
+      from_name: form.name,
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
+      replyto: form.email,
+    }
+
+    if (isSOS) {
+      body['Type de panne'] = form.breakdownType
+    }
+    if (isVTC) {
+      body['Adresse de départ'] = form.pickupAddress
+      body['Destination'] = form.destination
+      body['Date souhaitée'] = form.date
+      body['Heure souhaitée'] = form.time
+      body['Nombre de passagers'] = form.passengers
+    }
+    if (isNettoyageAuto) {
+      body['Type de véhicule'] = form.vehicleType
+      body['Prestation souhaitée'] = form.service
+    }
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Nantes Services — ${form.subject}`,
-          from_name: form.name,
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          message: form.message,
-          replyto: form.email,
-        }),
+        body: JSON.stringify(body),
       })
       const result = await response.json()
 
@@ -161,7 +223,7 @@ export default function Contact() {
                   role="alert"
                   className="mt-6 flex items-start gap-3 rounded-lg bg-red-50 p-4 text-sm text-red-800 ring-1 ring-red-200"
                 >
-                  <IconAlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
+                  <IconAlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
                   <p>
                     L’envoi a échoué. Vous pouvez réessayer, ou nous écrire directement à{' '}
                     <a href="mailto:nantes.services44@gmail.com" className="font-medium underline">
@@ -226,7 +288,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-slate-700">
-                    Sujet
+                    Type de demande
                   </label>
                   <select
                     id="subject"
@@ -243,14 +305,171 @@ export default function Contact() {
                   </select>
                 </div>
 
+                {isSOS && (
+                  <div className="animate-[fadeInUp_0.25s_ease-out] rounded-lg bg-surface p-4 sm:col-span-2">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                      <p className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                        <IconClock className="h-4 w-4" />
+                        Délai moyen d’intervention : 1h
+                      </p>
+                      <a
+                        href="tel:+33759124748"
+                        className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-light"
+                      >
+                        <IconPhone className="h-4 w-4" />
+                        Appeler pour un dépannage
+                      </a>
+                    </div>
+
+                    <div className="mt-4">
+                      <label htmlFor="breakdownType" className="block text-sm font-medium text-slate-700">
+                        Type de panne <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        id="breakdownType"
+                        name="breakdownType"
+                        required
+                        value={form.breakdownType}
+                        onChange={handleChange}
+                        className="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      >
+                        {breakdownTypes.map((type) => (
+                          <option key={type} value={type}>
+                            {type}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                )}
+
+                {isVTC && (
+                  <div className="grid animate-[fadeInUp_0.25s_ease-out] grid-cols-1 gap-5 sm:col-span-2 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="pickupAddress" className="block text-sm font-medium text-slate-700">
+                        Adresse de départ <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        id="pickupAddress"
+                        name="pickupAddress"
+                        type="text"
+                        required
+                        value={form.pickupAddress}
+                        onChange={handleChange}
+                        className="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        placeholder="Adresse, ville"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="destination" className="block text-sm font-medium text-slate-700">
+                        Destination <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        id="destination"
+                        name="destination"
+                        type="text"
+                        required
+                        value={form.destination}
+                        onChange={handleChange}
+                        className="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        placeholder="Adresse, ville, gare, aéroport..."
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="date" className="block text-sm font-medium text-slate-700">
+                        Date souhaitée
+                      </label>
+                      <input
+                        id="date"
+                        name="date"
+                        type="date"
+                        value={form.date}
+                        onChange={handleChange}
+                        className="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="time" className="block text-sm font-medium text-slate-700">
+                        Heure souhaitée
+                      </label>
+                      <input
+                        id="time"
+                        name="time"
+                        type="time"
+                        value={form.time}
+                        onChange={handleChange}
+                        className="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="passengers" className="block text-sm font-medium text-slate-700">
+                        Nombre de passagers
+                      </label>
+                      <input
+                        id="passengers"
+                        name="passengers"
+                        type="number"
+                        min="1"
+                        max="8"
+                        value={form.passengers}
+                        onChange={handleChange}
+                        className="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        placeholder="1"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {isNettoyageAuto && (
+                  <div className="grid animate-[fadeInUp_0.25s_ease-out] grid-cols-1 gap-5 sm:col-span-2 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="vehicleType" className="block text-sm font-medium text-slate-700">
+                        Type de véhicule
+                      </label>
+                      <select
+                        id="vehicleType"
+                        name="vehicleType"
+                        value={form.vehicleType}
+                        onChange={handleChange}
+                        className="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      >
+                        {vehicleTypes.map((type) => (
+                          <option key={type} value={type}>
+                            {type}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="service" className="block text-sm font-medium text-slate-700">
+                        Prestation souhaitée
+                      </label>
+                      <select
+                        id="service"
+                        name="service"
+                        value={form.service}
+                        onChange={handleChange}
+                        className="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      >
+                        {carWashServices.map((service) => (
+                          <option key={service} value={service}>
+                            {service}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                )}
+
                 <div className="sm:col-span-2">
                   <label htmlFor="message" className="block text-sm font-medium text-slate-700">
-                    Message <span className="text-red-600">*</span>
+                    {isVTC || isNettoyageAuto ? 'Message complémentaire' : 'Message'}{' '}
+                    {!isVTC && !isNettoyageAuto && <span className="text-red-600">*</span>}
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    required
+                    required={!isVTC && !isNettoyageAuto}
                     rows={5}
                     value={form.message}
                     onChange={handleChange}

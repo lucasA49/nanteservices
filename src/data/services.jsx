@@ -1,16 +1,59 @@
-import { IconSparkles, IconLeaf, IconWrench, IconTruck, IconKey, IconCar } from '../components/icons.jsx'
+import {
+  IconSparkles,
+  IconLeaf,
+  IconWrench,
+  IconTruck,
+  IconKey,
+  IconCar,
+  IconDroplet,
+  IconAlertTriangle,
+  IconSteeringWheel,
+} from '../components/icons.jsx'
 
-const services = [
+// The 3 core activities of the business, highlighted in their own section on the homepage.
+export const featuredServices = [
+  {
+    id: 'nettoyage-auto',
+    icon: IconDroplet,
+    title: 'Nettoyage automobile',
+    summary:
+      'Nettoyage automobile professionnel pour particuliers et professionnels : intérieur, extérieur ou complet.',
+    details: ['Nettoyage intérieur', 'Nettoyage extérieur', 'Nettoyage complet', 'Entretien du véhicule'],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=nettoyage-auto',
+  },
+  {
+    id: 'sos-depannage',
+    icon: IconAlertTriangle,
+    title: 'SOS Dépannage',
+    summary: 'Assistance et dépannage automobile pour panne de carburant, panne de batterie ou crevaison.',
+    details: ['Panne carburant', 'Panne batterie', 'Crevaison'],
+    note: 'Délai moyen d’intervention : 1h',
+    ctaLabel: 'Demander une intervention',
+    ctaHref: '/contact?type=sos-depannage',
+    phoneCta: 'Appeler pour un dépannage',
+  },
+  {
+    id: 'vtc',
+    icon: IconSteeringWheel,
+    title: 'VTC – Chauffeur privé',
+    summary:
+      'Transport avec chauffeur privé pour déplacements professionnels, transferts gare, aéroport ou trajets longue distance.',
+    details: ['Déplacements professionnels', 'Transferts gare & aéroport', 'Trajets privés longue distance'],
+    ctaLabel: 'Réserver un trajet',
+    ctaHref: '/contact?type=vtc',
+  },
+]
+
+export const otherServices = [
   {
     id: 'mecanique-auto-moto',
     icon: IconCar,
     title: 'Mécanique auto & moto',
     summary: 'Entretien courant et dépannage pour véhicules auto et moto, à domicile ou sur place.',
-    details: [
-      'Réparation de crevaison',
-      'Vidange et entretien courant',
-      'Dépannage rapide',
-    ],
+    details: ['Réparation de crevaison', 'Vidange et entretien courant', 'Dépannage rapide'],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=mecanique-auto-moto',
   },
   {
     id: 'menage',
@@ -22,6 +65,8 @@ const services = [
       'Formules hebdomadaires ou mensuelles',
       'Produits et matériel fournis',
     ],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=menage',
   },
   {
     id: 'espaces-verts',
@@ -33,6 +78,8 @@ const services = [
       'Entretien saisonnier des massifs',
       'Évacuation des déchets verts',
     ],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=espaces-verts',
   },
   {
     id: 'petits-travaux',
@@ -44,6 +91,8 @@ const services = [
       'Fixations, pose d’étagères, petites réparations',
       'Devis gratuit avant intervention',
     ],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=petits-travaux',
   },
   {
     id: 'demenagement',
@@ -55,6 +104,8 @@ const services = [
       'Emballage et protection du mobilier',
       'Équipe expérimentée et assurée',
     ],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=demenagement',
   },
   {
     id: 'conciergerie',
@@ -66,7 +117,11 @@ const services = [
       'Gestion des accès et des clés',
       'Services personnalisés à la demande',
     ],
+    ctaLabel: 'Demander un devis',
+    ctaHref: '/contact?type=conciergerie',
   },
 ]
+
+const services = [...featuredServices, ...otherServices]
 
 export default services
