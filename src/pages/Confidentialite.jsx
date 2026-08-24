@@ -2,7 +2,16 @@ import LegalLayout, { LegalSection } from '../components/LegalLayout.jsx'
 
 export default function Confidentialite() {
   return (
-    <LegalLayout title="Politique de confidentialité" updated="août 2026">
+    <LegalLayout
+      title="Politique de confidentialité"
+      updated="août 2026"
+      seo={{
+        title: 'Politique de confidentialité',
+        description:
+          'Politique de confidentialité et protection des données personnelles (RGPD) du site Nantes Services.',
+        path: '/confidentialite',
+      }}
+    >
       <LegalSection title="1. Objet">
         <p>
           La présente Politique de confidentialité a pour objectif d’informer les utilisateurs du site Nantes

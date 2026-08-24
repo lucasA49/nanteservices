@@ -5,6 +5,7 @@ import Contact from './pages/Contact.jsx'
 import MentionsLegales from './pages/MentionsLegales.jsx'
 import Confidentialite from './pages/Confidentialite.jsx'
 import CGU from './pages/CGU.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="mentions-legales" element={<MentionsLegales />} />
         <Route path="confidentialite" element={<Confidentialite />} />
         <Route path="cgu" element={<CGU />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )

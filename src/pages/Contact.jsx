@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import Seo from '../components/Seo.jsx'
 import { IconAlertTriangle, IconCheckCircle, IconClock, IconMail, IconMapPin, IconPhone } from '../components/icons.jsx'
 
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
@@ -125,6 +126,11 @@ export default function Contact() {
 
   return (
     <>
+      <Seo
+        title="Contact & devis gratuit"
+        description="Contactez Nantes Services pour un devis gratuit : nettoyage automobile, SOS dépannage, VTC chauffeur privé, ménage, jardinage, petits travaux, déménagement, conciergerie. Réponse sous 24h ouvrées."
+        path="/contact"
+      />
       <section className="bg-surface">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h1 className="font-heading text-4xl font-bold text-slate-900 sm:text-5xl">Contactez-nous</h1>

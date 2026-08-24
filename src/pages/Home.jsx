@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Seo from '../components/Seo.jsx'
 import services, { featuredServices, otherServices } from '../data/services.jsx'
 import {
   IconArrowRight,
@@ -43,6 +44,11 @@ const trustPoints = [
 export default function Home() {
   return (
     <>
+      <Seo
+        title="Nantes Services — Nettoyage auto, SOS Dépannage & VTC à Nantes"
+        description="Nettoyage automobile, SOS dépannage (panne batterie, panne carburant, crevaison) et VTC chauffeur privé à Nantes, ainsi que ménage, entretien des espaces verts, petits travaux, déménagement et conciergerie."
+        path="/"
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-surface">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">

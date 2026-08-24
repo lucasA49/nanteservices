@@ -2,7 +2,15 @@ import LegalLayout, { LegalSection } from '../components/LegalLayout.jsx'
 
 export default function CGU() {
   return (
-    <LegalLayout title="Conditions générales d’utilisation" updated="25 août 2026">
+    <LegalLayout
+      title="Conditions générales d’utilisation"
+      updated="25 août 2026"
+      seo={{
+        title: 'Conditions générales d’utilisation (CGU)',
+        description: 'Conditions générales d’utilisation (CGU) du site Nantes Services.',
+        path: '/cgu',
+      }}
+    >
       <LegalSection title="1. Objet">
         <p>
           Les présentes Conditions Générales d’Utilisation (CGU) ont pour objet de définir les conditions d’accès et

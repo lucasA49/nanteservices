@@ -2,7 +2,15 @@ import LegalLayout, { LegalSection } from '../components/LegalLayout.jsx'
 
 export default function MentionsLegales() {
   return (
-    <LegalLayout title="Mentions légales" updated="25 août 2026">
+    <LegalLayout
+      title="Mentions légales"
+      updated="25 août 2026"
+      seo={{
+        title: 'Mentions légales',
+        description: 'Mentions légales du site Nantes Services : éditeur, hébergement et propriété intellectuelle.',
+        path: '/mentions-legales',
+      }}
+    >
       <LegalSection title="1. Éditeur du site">
         <p>Le site Nantes Services est édité par&nbsp;:</p>
         <ul className="list-disc space-y-1 pl-5">
