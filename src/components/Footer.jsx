@@ -80,8 +80,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-slate-800 pt-6 text-sm text-slate-500">
-          <p>© {year} Nantes Services — Site fictif à titre de démonstration. Tous droits réservés.</p>
+        <div className="mt-10 flex flex-col gap-4 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} Nantes Services. Tous droits réservés.</p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            <li>
+              <Link to="/mentions-legales" className="transition-colors duration-200 hover:text-white">
+                Mentions légales
+              </Link>
+            </li>
+            <li>
+              <Link to="/confidentialite" className="transition-colors duration-200 hover:text-white">
+                Politique de confidentialité
+              </Link>
+            </li>
+            <li>
+              <Link to="/cgu" className="transition-colors duration-200 hover:text-white">
+                CGU
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

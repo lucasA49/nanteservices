@@ -2,6 +2,17 @@ import { IconSparkles, IconLeaf, IconWrench, IconTruck, IconKey, IconCar } from 
 
 const services = [
   {
+    id: 'mecanique-auto-moto',
+    icon: IconCar,
+    title: 'Mécanique auto & moto',
+    summary: 'Entretien courant et dépannage pour véhicules auto et moto, à domicile ou sur place.',
+    details: [
+      'Réparation de crevaison',
+      'Vidange et entretien courant',
+      'Dépannage rapide',
+    ],
+  },
+  {
     id: 'menage',
     icon: IconSparkles,
     title: 'Ménage & nettoyage',
@@ -54,17 +65,6 @@ const services = [
       'Réception et garde de colis',
       'Gestion des accès et des clés',
       'Services personnalisés à la demande',
-    ],
-  },
-  {
-    id: 'mecanique-auto-moto',
-    icon: IconCar,
-    title: 'Mécanique auto & moto',
-    summary: 'Entretien courant et dépannage pour véhicules auto et moto, à domicile ou sur place.',
-    details: [
-      'Réparation de crevaison',
-      'Vidange et entretien courant',
-      'Dépannage rapide',
     ],
   },
 ]
