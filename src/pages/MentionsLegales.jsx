@@ -6,10 +6,11 @@ export default function MentionsLegales() {
       <LegalSection title="1. Éditeur du site">
         <p>Le site Nantes Services est édité par&nbsp;:</p>
         <ul className="list-disc space-y-1 pl-5">
-          <li>Nantes Services — [forme juridique à compléter]</li>
-          <li>Siège social&nbsp;: 12 Rue de la Paix, 44000 Nantes</li>
-          <li>SIRET&nbsp;: [à compléter]</li>
-          <li>Directeur de la publication&nbsp;: [à compléter]</li>
+          <li>Nantes Services — Entrepreneur individuel</li>
+          <li>Exploitant&nbsp;: Riad Fatimi</li>
+          <li>SIRET&nbsp;: 884 635 700 018</li>
+          <li>Adresse professionnelle&nbsp;: [à compléter]</li>
+          <li>Directeur de la publication&nbsp;: Riad Fatimi</li>
           <li>
             Contact&nbsp;: <a href="mailto:nantes.services44@gmail.com" className="text-primary underline">nantes.services44@gmail.com</a>
             {' '}— 07 59 12 47 48
@@ -20,11 +21,11 @@ export default function MentionsLegales() {
       <LegalSection title="2. Hébergement">
         <p>Le site est hébergé par&nbsp;:</p>
         <ul className="list-disc space-y-1 pl-5">
-          <li>Vercel Inc.</li>
-          <li>340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</li>
+          <li>Hostinger International Ltd.</li>
+          <li>Adresse&nbsp;: [à vérifier sur hostinger.fr]</li>
           <li>
-            <a href="https://vercel.com" target="_blank" rel="noreferrer" className="text-primary underline">
-              vercel.com
+            <a href="https://www.hostinger.fr" target="_blank" rel="noreferrer" className="text-primary underline">
+              hostinger.fr
             </a>
           </li>
         </ul>
