@@ -9,15 +9,14 @@ const SOS_DEPANNAGE = 'SOS Dépannage'
 const VTC = 'VTC – Chauffeur privé'
 
 const subjects = [
-  'Ménage & nettoyage',
-  'Entretien des espaces verts',
-  'Petits travaux',
-  'Déménagement',
-  'Conciergerie',
-  'Mécanique auto & moto',
   NETTOYAGE_AUTO,
   SOS_DEPANNAGE,
   VTC,
+  'Mécanique auto & moto',
+  'Déménagement',
+  'Petits travaux',
+  'Conciergerie',
+  'Entretien des espaces verts',
   'Autre demande',
 ]
 
@@ -145,7 +144,7 @@ export default function Contact() {
                   <IconMapPin className="h-5 w-5" />
                 </span>
                 <div>
-                  <p className="font-medium text-slate-900">Siège social</p>
+                  <p className="font-medium text-slate-900">Interventions</p>
                   <p className="text-sm text-slate-500">Nous intervenons chez vous — pas d’accueil sur place</p>
                 </div>
               </li>

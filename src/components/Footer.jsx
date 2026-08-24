@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import services from '../data/services.jsx'
-import { IconPhone, IconMail, IconMapPin, IconClock } from './icons.jsx'
+import { IconPhone, IconMail, IconClock } from './icons.jsx'
 import Logo from './Logo.jsx'
 
 export default function Footer() {
@@ -53,10 +53,6 @@ export default function Footer() {
           <div>
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">Contact</h3>
             <ul className="mt-4 space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <IconMapPin className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                <span className="text-slate-400">12 Rue de la Paix, 44000 Nantes</span>
-              </li>
               <li className="flex items-center gap-2">
                 <IconPhone className="h-5 w-5 shrink-0 text-accent" />
                 <a href="tel:+33759124748" className="text-slate-400 transition-colors duration-200 hover:text-white">
