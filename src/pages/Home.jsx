@@ -14,7 +14,7 @@ import {
 const stats = [
   { value: '4 ans', label: "d'expérience à Nantes" },
   { value: '500+', label: 'clients satisfaits' },
-  { value: '48h', label: "délai d'intervention moyen" },
+  { value: '1h', label: "délai d'intervention moyen" },
   { value: '4.8/5', label: 'note moyenne clients' },
 ]
 
