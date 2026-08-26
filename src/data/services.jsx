@@ -10,6 +10,7 @@ import {
   IconSteeringWheel,
 } from '../components/icons.jsx'
 
+// priceFrom is a placeholder — update with the real starting price for each service.
 // The 3 core activities of the business, highlighted in their own section on the homepage.
 export const featuredServices = [
   {
@@ -19,6 +20,7 @@ export const featuredServices = [
     summary:
       'Nettoyage automobile professionnel pour particuliers et professionnels : intérieur, extérieur ou complet.',
     details: ['Nettoyage intérieur', 'Nettoyage extérieur', 'Nettoyage complet', 'Entretien du véhicule'],
+    priceFrom: '49,90€',
     ctaLabel: 'Demander un devis',
     ctaHref: '/contact?type=nettoyage-auto',
   },
@@ -29,6 +31,7 @@ export const featuredServices = [
     summary: 'Assistance et dépannage automobile pour panne de carburant, panne de batterie ou crevaison.',
     details: ['Panne carburant', 'Panne batterie', 'Crevaison'],
     note: 'Délai moyen d’intervention : 1h',
+    priceFrom: '19,90€',
     ctaLabel: 'Demander une intervention',
     ctaHref: '/contact?type=sos-depannage',
     phoneCta: 'Appeler pour un dépannage',
@@ -40,6 +43,7 @@ export const featuredServices = [
     summary:
       'Transport avec chauffeur privé pour déplacements professionnels, transferts gare, aéroport ou trajets longue distance.',
     details: ['Déplacements professionnels', 'Transferts gare & aéroport', 'Trajets privés longue distance'],
+    priceFrom: '9,90€',
     ctaLabel: 'Réserver un trajet',
     ctaHref: '/contact?type=vtc',
   },
@@ -52,6 +56,7 @@ export const otherServices = [
     title: 'Mécanique auto & moto',
     summary: 'Entretien courant et dépannage pour véhicules auto et moto, à domicile ou sur place.',
     details: ['Réparation de crevaison', 'Vidange et entretien courant', 'Dépannage rapide'],
+    priceFrom: '49,90€',
     ctaLabel: 'Demander un devis',
     ctaHref: '/contact?type=mecanique-auto-moto',
   },
@@ -65,6 +70,7 @@ export const otherServices = [
       'Fixations, pose d’étagères, petites réparations',
       'Devis gratuit avant intervention',
     ],
+    priceFrom: '19,90€',
     ctaLabel: 'Demander un devis',
     ctaHref: '/contact?type=petits-travaux',
   },
@@ -78,6 +84,7 @@ export const otherServices = [
       'Emballage et protection du mobilier',
       'Équipe expérimentée et assurée',
     ],
+    priceFrom: 'Sur devis',
     ctaLabel: 'Demander un devis',
     ctaHref: '/contact?type=demenagement',
   },
@@ -91,6 +98,7 @@ export const otherServices = [
       'Gestion des accès et des clés',
       'Services personnalisés à la demande',
     ],
+    priceFrom: '19,90€',
     ctaLabel: 'Demander un devis',
     ctaHref: '/contact?type=conciergerie',
   },
@@ -104,6 +112,7 @@ export const otherServices = [
       'Entretien saisonnier des massifs',
       'Évacuation des déchets verts',
     ],
+    priceFrom: 'Sur devis',
     ctaLabel: 'Demander un devis',
     ctaHref: '/contact?type=espaces-verts',
   },
@@ -117,6 +126,7 @@ export const otherServices = [
       'Formules hebdomadaires ou mensuelles',
       'Produits et matériel fournis',
     ],
+    priceFrom: 'Sur devis',
     ctaLabel: 'Demander un devis',
     ctaHref: '/contact?type=menage',
   },

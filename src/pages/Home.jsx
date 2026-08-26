@@ -138,8 +138,17 @@ export default function Home() {
                   id={service.id}
                   className="group scroll-mt-24 flex flex-col rounded-2xl border border-slate-200 p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary-light/50 hover:shadow-lg"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-accent transition-transform duration-200 group-hover:scale-105">
-                    <Icon className="h-7 w-7" />
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-accent transition-transform duration-200 group-hover:scale-105">
+                      <Icon className="h-7 w-7" />
+                    </div>
+                    {service.priceFrom && (
+                      <span className="inline-flex shrink-0 items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold text-ink">
+                        {service.priceFrom.toLowerCase().includes('devis')
+                          ? service.priceFrom
+                          : `à partir de ${service.priceFrom}`}
+                      </span>
+                    )}
                   </div>
                   <h3 className="mt-5 font-heading text-xl font-semibold text-slate-900">{service.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.summary}</p>
@@ -225,8 +234,17 @@ export default function Home() {
                   id={service.id}
                   className="scroll-mt-24 rounded-2xl border border-slate-200 p-8 transition-colors duration-200 hover:border-primary-light/50 hover:shadow-md"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface text-primary">
-                    <Icon className="h-6 w-6" />
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface text-primary">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    {service.priceFrom && (
+                      <span className="inline-flex shrink-0 items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold text-ink">
+                        {service.priceFrom.toLowerCase().includes('devis')
+                          ? service.priceFrom
+                          : `à partir de ${service.priceFrom}`}
+                      </span>
+                    )}
                   </div>
                   <h3 className="mt-5 font-heading text-lg font-semibold text-slate-900">{service.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.summary}</p>
