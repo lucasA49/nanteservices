@@ -33,13 +33,21 @@
     />
     <meta name="twitter:image" content="https://nantesservices.fr/nantesservices.png" />
 
-    <!-- Fonts: preconnect + direct stylesheet link (faster than a CSS @import) -->
+    <!-- Fonts: preconnect + non-render-blocking stylesheet load (preload, then swap to stylesheet on load) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      />
+    </noscript>
 
     <!-- Structured data: local business + services (helps Google understand the business for local search) -->
     <script type="application/ld+json">

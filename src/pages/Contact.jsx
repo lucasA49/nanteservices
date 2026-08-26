@@ -192,7 +192,13 @@ export default function Contact() {
 
             <div className="mt-8 flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-br from-primary to-primary-light p-8 text-center shadow-md ring-1 ring-black/5">
               <span className="flex h-24 w-24 items-center justify-center rounded-2xl bg-white p-2 shadow-sm">
-                <img src="/nantesservices.png" alt="Nantes Services" className="h-full w-full object-contain" />
+                <img
+                  src="/nantesservices.png"
+                  alt="Nantes Services"
+                  width="96"
+                  height="96"
+                  className="h-full w-full object-contain"
+                />
               </span>
               <div>
                 <p className="font-heading text-lg font-semibold text-white">Nantes Services</p>

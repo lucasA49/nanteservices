@@ -58,7 +58,7 @@ export default function Home() {
               Services du quotidien à Nantes
             </span>
             <h1 className="mt-6 font-heading text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-              Des services fiables pour votre maison, votre véhicule et vos déplacements
+Des services fiables pour simplifier votre quotidien.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
               Nettoyage automobile, SOS Dépannage, VTC avec chauffeur privé, ménage, entretien des espaces verts,
