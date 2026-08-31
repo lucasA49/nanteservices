@@ -237,6 +237,114 @@ export function IconSteeringWheel({ className = 'w-6 h-6' }) {
   )
 }
 
+// Full-colour illustration (ignores currentColor) — used for the "Nettoyage automobile" service.
+export function IconCarWash({ className = 'w-6 h-6' }) {
+  return (
+    <svg viewBox="50 65 470 470" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="cw-sponge" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#fff33b" />
+          <stop offset="55%" stopColor="#ffd21c" />
+          <stop offset="100%" stopColor="#ff9d00" />
+        </linearGradient>
+        <linearGradient id="cw-scrub" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#20a85a" />
+          <stop offset="100%" stopColor="#08733e" />
+        </linearGradient>
+        <radialGradient id="cw-bubble" cx="35%" cy="25%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity=".95" />
+          <stop offset="35%" stopColor="#bff5ff" stopOpacity=".85" />
+          <stop offset="100%" stopColor="#31bdf2" stopOpacity=".75" />
+        </radialGradient>
+        <filter id="cw-shadow" x="-30%" y="-30%" width="160%" height="160%">
+          <feDropShadow dx="0" dy="8" stdDeviation="9" floodColor="#063b82" floodOpacity=".35" />
+        </filter>
+        <pattern id="cw-pores" width="65" height="65" patternUnits="userSpaceOnUse">
+          <circle cx="15" cy="17" r="5" fill="#ed8b00" opacity=".8" />
+          <circle cx="43" cy="31" r="9" fill="#f18d00" opacity=".75" />
+          <circle cx="27" cy="52" r="4" fill="#e87800" opacity=".65" />
+        </pattern>
+      </defs>
+
+      <g filter="url(#cw-shadow)">
+        <path
+          d="M115 400 C80 375 84 330 119 316 C102 278 126 245 165 250 C163 210 203 185 235 205 C253 166 307 168 321 208 C350 194 381 216 380 248 C414 250 431 284 414 311 C444 338 429 381 394 388 C386 427 340 440 310 417 C279 447 229 437 219 403 C184 425 135 420 115 400Z"
+          fill="#dffaff"
+          stroke="#0878df"
+          strokeWidth="10"
+        />
+        <circle cx="142" cy="285" r="37" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="8" />
+        <circle cx="202" cy="225" r="30" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="8" />
+        <circle cx="265" cy="205" r="24" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="7" />
+        <circle cx="330" cy="255" r="31" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="8" />
+        <circle cx="380" cy="330" r="25" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="7" />
+        <ellipse cx="130" cy="270" rx="12" ry="22" fill="#fff" opacity=".75" transform="rotate(35 130 270)" />
+        <ellipse cx="194" cy="214" rx="9" ry="15" fill="#fff" opacity=".8" transform="rotate(35 194 214)" />
+      </g>
+
+      <g transform="rotate(-18 300 330)" filter="url(#cw-shadow)">
+        <path
+          d="M130 275 C130 238 153 215 190 215 L425 215 C455 215 475 237 475 270 L475 380 C475 417 453 440 416 440 L188 440 C151 440 130 416 130 380Z"
+          fill="url(#cw-scrub)"
+          stroke="#073b68"
+          strokeWidth="12"
+        />
+        <path
+          d="M130 275 C130 238 153 215 190 215 L425 215 C455 215 475 237 475 270 L475 380 C475 417 453 440 416 440 L188 440 C151 440 130 416 130 380Z"
+          fill="url(#cw-scrub)"
+          opacity=".55"
+        />
+        <path
+          d="M125 250 C125 215 148 190 185 190 L420 190 C455 190 478 214 478 249 L478 345 C478 381 454 405 418 405 L185 405 C148 405 125 382 125 345Z"
+          fill="url(#cw-sponge)"
+          stroke="#073b68"
+          strokeWidth="12"
+        />
+        <path
+          d="M125 250 C125 215 148 190 185 190 L420 190 C455 190 478 214 478 249 L478 345 C478 381 454 405 418 405 L185 405 C148 405 125 382 125 345Z"
+          fill="url(#cw-pores)"
+          opacity=".9"
+        />
+        <ellipse cx="215" cy="270" rx="25" ry="17" fill="#f28b00" />
+        <ellipse cx="300" cy="235" rx="30" ry="20" fill="#f28b00" />
+        <ellipse cx="385" cy="275" rx="24" ry="18" fill="#f28b00" />
+        <ellipse cx="250" cy="350" rx="28" ry="20" fill="#f28b00" />
+        <ellipse cx="350" cy="345" rx="22" ry="17" fill="#f28b00" />
+        <ellipse cx="218" cy="274" rx="18" ry="11" fill="#ffb300" opacity=".65" />
+        <ellipse cx="303" cy="239" rx="22" ry="13" fill="#ffb300" opacity=".65" />
+        <ellipse cx="388" cy="279" rx="17" ry="11" fill="#ffb300" opacity=".65" />
+        <path
+          d="M155 245 C170 215 204 207 236 208 C213 225 195 245 183 273 C175 292 157 289 153 273 C151 264 152 253 155 245Z"
+          fill="#fff"
+          opacity=".65"
+        />
+      </g>
+
+      <circle cx="105" cy="170" r="54" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="9" />
+      <ellipse cx="87" cy="146" rx="14" ry="25" fill="#fff" opacity=".85" transform="rotate(35 87 146)" />
+      <circle cx="120" cy="190" r="7" fill="#fff" opacity=".8" />
+
+      <circle cx="315" cy="90" r="30" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="8" />
+      <ellipse cx="305" cy="78" rx="8" ry="13" fill="#fff" opacity=".85" transform="rotate(35 305 78)" />
+
+      <circle cx="510" cy="270" r="40" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="9" />
+      <ellipse cx="497" cy="254" rx="10" ry="17" fill="#fff" opacity=".85" transform="rotate(35 497 254)" />
+
+      <circle cx="535" cy="375" r="22" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="7" />
+      <ellipse cx="528" cy="367" rx="6" ry="9" fill="#fff" opacity=".85" transform="rotate(35 528 367)" />
+
+      <circle cx="70" cy="345" r="23" fill="url(#cw-bubble)" stroke="#0878df" strokeWidth="7" />
+      <ellipse cx="63" cy="337" rx="6" ry="10" fill="#fff" opacity=".85" transform="rotate(35 63 337)" />
+
+      <g fill="#fff">
+        <path d="M430 105 L438 126 L459 134 L438 142 L430 164 L422 142 L401 134 L422 126Z" />
+        <path d="M500 165 L506 180 L521 186 L506 192 L500 207 L494 192 L479 186 L494 180Z" />
+        <path d="M105 420 L111 436 L127 442 L111 448 L105 464 L99 448 L83 442 L99 436Z" />
+      </g>
+    </svg>
+  )
+}
+
 // Brand glyphs (filled, currentColor) — for social media links, not the outline set above.
 const brandBase = { viewBox: '0 0 24 24', fill: 'currentColor', 'aria-hidden': 'true' }
 

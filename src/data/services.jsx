@@ -5,7 +5,7 @@ import {
   IconTruck,
   IconKey,
   IconCar,
-  IconSponge,
+  IconCarWash,
   IconAlertTriangle,
   IconSteeringWheel,
 } from '../components/icons.jsx'
@@ -15,7 +15,7 @@ import {
 export const featuredServices = [
   {
     id: 'nettoyage-auto',
-    icon: IconSponge,
+    icon: IconCarWash,
     title: 'Nettoyage automobile',
     summary:
       'Nettoyage automobile professionnel pour particuliers et professionnels : intérieur, extérieur ou complet.',
