@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import services from '../data/services.jsx'
+import socials from '../data/socials.jsx'
 import { IconPhone, IconMail, IconClock } from './icons.jsx'
 import Logo from './Logo.jsx'
 
@@ -16,6 +17,26 @@ export default function Footer() {
               Des professionnels de confiance pour l’entretien de votre domicile et de vos locaux, à Nantes et ses
               environs.
             </p>
+
+            <h3 className="mt-6 font-heading text-sm font-semibold uppercase tracking-wide text-white">Suivez-nous</h3>
+            <ul className="mt-4 flex gap-3">
+              {socials.map((social) => {
+                const Icon = social.icon
+                return (
+                  <li key={social.id}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className={`flex h-10 w-10 items-center justify-center rounded-lg ${social.brandClass} shadow-sm transition-transform duration-200 hover:scale-105`}
+                    >
+                      <Icon className="h-5 w-5" />
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
 
           <div>

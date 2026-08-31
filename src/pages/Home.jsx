@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
 import services, { featuredServices, otherServices } from '../data/services.jsx'
+import socials from '../data/socials.jsx'
 import {
   IconArrowRight,
   IconBadge,
@@ -320,6 +321,43 @@ Des services fiables pour simplifier votre quotidien.
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Réseaux sociaux */}
+      <section id="reseaux" className="scroll-mt-16 bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center rounded-full bg-surface px-4 py-1.5 text-sm font-medium text-primary">
+              Nos réseaux sociaux
+            </span>
+            <h2 className="mt-4 font-heading text-3xl font-bold text-slate-900 sm:text-4xl">Suivez Nantes Services</h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Retrouvez nos réalisations, nos conseils et nos actualités au quotidien sur Instagram, TikTok et
+              Snapchat.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
+            {socials.map((social) => {
+              const Icon = social.icon
+              return (
+                <a
+                  key={social.id}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 p-8 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary-light/50 hover:shadow-lg"
+                >
+                  <span className={`flex h-14 w-14 items-center justify-center rounded-xl ${social.brandClass} shadow-sm transition-transform duration-200 group-hover:scale-105`}>
+                    <Icon className="h-7 w-7" />
+                  </span>
+                  <span className="font-heading text-base font-semibold text-slate-900">{social.label}</span>
+                  <span className="text-sm text-slate-600">{social.handle}</span>
+                </a>
+              )
+            })}
           </div>
         </div>
       </section>
