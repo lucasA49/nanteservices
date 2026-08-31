@@ -33,7 +33,13 @@ const trustPoints = [
   {
     icon: IconClock,
     title: 'Intervention rapide',
-    text: "Une équipe disponible et réactive, souvent sous 48h.",
+    text: (
+      <>
+        Une équipe disponible et réactive, qui intervient{' '}
+        <strong className="font-semibold text-slate-900">en quelques minutes</strong> (quelques heures selon la
+        prestation demandée).
+      </>
+    ),
   },
   {
     icon: IconBadge,
