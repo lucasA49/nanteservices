@@ -64,7 +64,7 @@ Des services fiables pour simplifier votre quotidien.
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
               Nettoyage automobile, SOS Dépannage, VTC avec chauffeur privé, ménage, entretien des espaces verts,
               petits travaux, déménagement, conciergerie&nbsp;: Nantes Services réunit des professionnels de
-              confiance pour simplifier votre quotidien.
+              confiance pour simplifier votre quotidien <br /> et réalise tout autre service sur demande.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
